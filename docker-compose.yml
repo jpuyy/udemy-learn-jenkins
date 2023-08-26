@@ -3,6 +3,7 @@ version: '3'
 services:
   jenkins:
     container_name: jenkins
+    restart: always
     build:
         context: jenkins-ansible
     image: jenkins-ansible
