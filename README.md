@@ -2,7 +2,7 @@
 
 
 ```
-docker-compose build # with ansible installed
+docker-compose build
 docker-compose down
 docker-compose up -d
 docker-compose restart jenkins
