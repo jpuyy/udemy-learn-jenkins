@@ -19,18 +19,13 @@ def createLunch(Map params = [:]) {
                 "drink": ${drinkType}
             }
         ]"""
-        // define credential secret_finta in jenkins
-        def secretDrink = credentials("secret_${drinkType}")
-        if (secretDrink!=null) {
-            // singal quote
-            echo 'you have secret code ${secretDrink}'
-        }
 
         // test withCredentials
         withCredentials([string(credentialsId: "secret_${drinkType}", variable: 'withSecretDrink')]) {
             echo 'you have secret code ${withSecretDrink}'
         }
         echo 'try wider variable ${withSecretDrink}'
+        sh 'echo "try wider variable ${withSecretDrink}"'
     }
 
     echo "This is your order:"
