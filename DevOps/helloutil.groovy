@@ -34,6 +34,7 @@ def createLunch(Map params = [:]) {
             sh 'echo "4 try wider variable ${withSecretDrinkOut}"'
             sh "echo 5 try wider variable ${withSecretDrinkOut}"
         }
+        sh 'echo 6 try wider variable ${withSecretDrinkOut}'
     }
 
     echo "This is your order:"
