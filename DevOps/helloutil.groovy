@@ -3,24 +3,22 @@ def createLunch(Map params = [:]) {
     def price = params.get("price")
 
     String drinkType = params.get('drink', null)
+    def order = """[
+        {
+            "price": ${price},
+            "lunch": ${lunch}
+        }
+    ]"""
 
-    switch(drinkType) {
-        case "cococola":
-            def order = """[
-                {
-                    "price": ${price},
-                    "lunch": ${lunch},
-                    "drink": ${drinkType}
+    if(!drinkType) {
+        order = """[
+            {
+                "price": ${price},
+                "lunch": ${lunch},
+                "drink": ${drinkType}
 
-                }
-            ]"""
-        default:
-            def order = """[
-                {
-                    "price": ${price},
-                    "lunch": ${lunch}
-                }
-            ]"""
+            }
+        ]"""
     }
 
     echo "This is your order:"
