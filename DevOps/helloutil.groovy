@@ -10,3 +10,5 @@ def createLunch(Map params = [:]) {
 
     writeJSON file: ".tmp/order.json", json: "${order}"
 }
+
+return this
