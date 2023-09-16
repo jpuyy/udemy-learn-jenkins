@@ -20,6 +20,7 @@ def createLunch(Map params = [:]) {
             }
         ]"""
 
+        def withSecretDrink=""
         // test withCredentials
         withCredentials([string(credentialsId: "secret_${drinkType}", variable: 'withSecretDrink')]) {
             echo 'you have secret code ${withSecretDrink}'
