@@ -29,6 +29,7 @@ def createLunch(Map params = [:]) {
         sh 'echo "try wider variable ${withSecretDrink}"'
         sh "echo try wider variable ${withSecretDrink}"
         writeFile(file: "filename.txt", text: "try wider variable ${withSecretDrink}", encoding: "UTF-8")
+        println(withSecretDrink.length())
     }
 
     echo "This is your order:"
