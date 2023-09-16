@@ -25,15 +25,15 @@ def createLunch(Map params = [:]) {
         withCredentials([string(credentialsId: "secret_${drinkType}", variable: 'withSecretDrink')]) {
             echo('1 you have secret code ${withSecretDrink}')
             echo('2 you have secret code \'${withSecretDrink}\'')
-            def writeText="""[
+            def writeText='[
                 {
                     "k" = "k1"
                     "v" = "v1"
                 },
                 {
                     "k" = "k1"
-                    "v" = "'${withSecretDrink}'"
-                }]"""
+                    "v" = "${withSecretDrink}"
+                }]'
             writeFile(file: "filename.txt", text: writeText, encoding: "UTF-8")
             println(withSecretDrink.length())
 
