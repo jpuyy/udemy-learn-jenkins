@@ -8,7 +8,8 @@ def createLunch(Map params = [:]) {
         }
     ]"""
 
-    writeJSON file: ".tmp/order.json", json: "${order}"
+    echo "This is your order:"
+    echo "${order}"
 }
 
 return this
