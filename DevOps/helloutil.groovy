@@ -20,7 +20,7 @@ def createLunch(Map params = [:]) {
             }
         ]"""
         // define credential secret_finta in jenkins
-        def secretDrink = credentials("secret_${drinkType}", null)
+        def secretDrink = credentials("secret_${drinkType}")
         if (secretDrink!=null) {
             // singal quote
             echo 'you have secret code ${secretDrink}'
