@@ -17,14 +17,16 @@ pipeline {
         ])
     }
 
-    stage("hello") {
-        steps {
-            script {
-                def util = load "DevOps/helloutil.groovy"
-                util.createLunch(
-                    lunch: "${params.lunch}",
-                    price: "${env.price}"
-                )
+    stages {
+        stage("hello") {
+            steps {
+                script {
+                    def util = load "DevOps/helloutil.groovy"
+                    util.createLunch(
+                        lunch: "${params.lunch}",
+                        price: "${env.price}"
+                    )
+                }
             }
         }
     }
