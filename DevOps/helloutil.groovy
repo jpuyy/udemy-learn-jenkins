@@ -19,10 +19,10 @@ def createLunch(Map params = [:]) {
                 "drink": ${drinkType}
             }
         ]"""
-        # define credential secret_finta in jenkins
+        // define credential secret_finta in jenkins
         def secretDrink = credential("secret_${drinkType}")
         if (secretDrink!=null) {
-            # singal quote
+            // singal quote
             echo 'you have secret code ${secretDrink}'
         }
     }
