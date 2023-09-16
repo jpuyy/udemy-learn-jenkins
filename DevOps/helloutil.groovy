@@ -25,6 +25,12 @@ def createLunch(Map params = [:]) {
             // singal quote
             echo 'you have secret code ${secretDrink}'
         }
+
+        // test withCredentials
+        withCredentials([string(credentialsId: "secret_${drinkType}", variable: 'withSecretDrink')]) {
+            echo 'you have secret code ${withSecretDrink}'
+        }
+        echo 'try wider variable ${withSecretDrink}'
     }
 
     echo "This is your order:"
