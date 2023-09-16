@@ -10,7 +10,7 @@ def createLunch(Map params = [:]) {
         }
     ]"""
 
-    if (!drinkType) {
+    if (drinkType != null) {
         order = """[
             {
                 "price": ${price},
