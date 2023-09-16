@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: "10"))
+    }
+
+    environment {
+      def price = 100
+    }
+
+    parameters {
+        choice(name: "lunch", choices: [
+          "fish",
+          "rice",
+          "all"
+        ])
+    }
+
+    stage("hello") {
+        steps {
+            script {
+                def util = load "DevOps/helloutil.groovy"
+                util.createLunch(
+                    lunch: "${params.lunch}",
+                    price: "${env.price}"
+                )
+            }
+        }
+    }
+}
