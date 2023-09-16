@@ -23,14 +23,15 @@ def createLunch(Map params = [:]) {
         def withSecretDrink=""
         // test withCredentials
         withCredentials([string(credentialsId: "secret_${drinkType}", variable: 'withSecretDrink')]) {
-            echo 'you have secret code ${withSecretDrink}'
+            echo '1 you have secret code ${withSecretDrink}'
+            echo "2 you have secret code '${withSecretDrink}'"
         }
         echo 'try wider variable ${withSecretDrink}'
         sh 'echo "try wider variable ${withSecretDrink}"'
         sh "echo try wider variable ${withSecretDrink}"
         writeFile(file: "filename.txt", text: "try wider variable ${withSecretDrink}", encoding: "UTF-8")
-        println($withSecretDrink.length())
-        echo "${withSecretDrink}.length()"
+        println(withSecretDrink.length())
+        sh "echo ${withSecretDrink} | wc -c"
     }
 
     echo "This is your order:"
