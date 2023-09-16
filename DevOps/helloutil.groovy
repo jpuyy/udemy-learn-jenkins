@@ -2,7 +2,8 @@ def createLunch(Map params = [:]) {
     def lunch = params.get("lunch")
     def price = params.get("price")
 
-    String drinkType = params.get('drink', null)
+    def drinkType = params.get('drink', null)
+
     def order = """[
         {
             "price": ${price},
@@ -10,13 +11,12 @@ def createLunch(Map params = [:]) {
         }
     ]"""
 
-    if (drinkType != null) {
+    if (drinkType!=null) {
         order = """[
             {
                 "price": ${price},
                 "lunch": ${lunch},
                 "drink": ${drinkType}
-
             }
         ]"""
     }
